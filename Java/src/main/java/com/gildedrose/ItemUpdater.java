@@ -8,6 +8,7 @@ public class ItemUpdater {
     public static final String AGED_BRIE = "Aged Brie";
     public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
     public static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
+    public static final String CONJURED = "Conjured";
     public static final int MAX_ITEM_QUALITY = 50;
     public static final int MIN_ITEM_QUALITY = 0;
     public static final int DEADLINE = 0;
@@ -19,6 +20,8 @@ public class ItemUpdater {
             updateBackstagePass(item);
         } else if (isSulfuras(item)) {
             // nothing applies here
+        } else if (isConjured(item)) {
+            updateConjured(item);
         } else {
             updateRegularItem(item);
         }
@@ -39,7 +42,7 @@ public class ItemUpdater {
         final int quality;
         if (item.sellIn < 6) {
             quality = 3;
-        } else if (item.sellIn < 11){
+        } else if (item.sellIn < 11) {
             quality = 2;
         } else {
             quality = 1;
@@ -49,6 +52,12 @@ public class ItemUpdater {
 
     private static void updateRegularItem(final Item item) {
         final int quality = item.sellIn > DEADLINE ? 1 : 2;
+        item.quality = max(item.quality - quality, MIN_ITEM_QUALITY);
+        item.sellIn = item.sellIn - 1;
+    }
+
+    private static void updateConjured(final Item item) {
+        final int quality = item.sellIn > DEADLINE ? 2 : 4;
         item.quality = max(item.quality - quality, MIN_ITEM_QUALITY);
         item.sellIn = item.sellIn - 1;
     }
@@ -63,5 +72,9 @@ public class ItemUpdater {
 
     private static boolean isAgedBrie(final Item item) {
         return item.name.equals(AGED_BRIE);
+    }
+
+    private static boolean isConjured(final Item item) {
+        return item.name.contains(CONJURED);
     }
 }

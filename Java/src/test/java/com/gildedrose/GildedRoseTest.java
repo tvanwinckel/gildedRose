@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.gildedrose.ItemUpdater.AGED_BRIE;
 import static com.gildedrose.ItemUpdater.BACKSTAGE_PASSES;
+import static com.gildedrose.ItemUpdater.CONJURED;
 import static com.gildedrose.ItemUpdater.SULFURAS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -164,36 +165,36 @@ class GildedRoseTest {
 
     @Test
     void updateQualityOfConjuredItem_sellInNotExceeded_qualityDegradesTwiceAsFastAsNormal() {
-        final Item item = new Item("Conjured Mana Cake", 3, 6);
+        final Item item = new Item(CONJURED, 3, 6);
         final Item[] items = new Item[] {item};
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(item.name).isEqualTo("Conjured Mana Cake");
+        assertThat(item.name).isEqualTo(CONJURED);
         assertThat(item.sellIn).isEqualTo(2);
         assertThat(item.quality).isEqualTo(4);
     }
 
     @Test
     void updateQualityOfConjuredItem_sellInExceeded_qualityDegradesTwiceAsFastAsNormal() {
-        final Item item = new Item("Conjured Mana Cake", 0, 6);
+        final Item item = new Item(CONJURED, 0, 6);
         final Item[] items = new Item[] {item};
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(item.name).isEqualTo("Conjured Mana Cake");
+        assertThat(item.name).isEqualTo(CONJURED);
         assertThat(item.sellIn).isEqualTo(-1);
         assertThat(item.quality).isEqualTo(2);
     }
 
     @Test
     void updateQualityOfConjuredItem_qualityCanNotGoBelowZero() {
-        final Item item = new Item("Conjured Mana Cake", 0, 0);
+        final Item item = new Item(CONJURED, 0, 0);
         final Item[] items = new Item[] {item};
         final GildedRose app = new GildedRose(items);
         app.updateQuality();
 
-        assertThat(item.name).isEqualTo("Conjured Mana Cake");
+        assertThat(item.name).isEqualTo(CONJURED);
         assertThat(item.sellIn).isEqualTo(-1);
         assertThat(item.quality).isEqualTo(0);
     }
