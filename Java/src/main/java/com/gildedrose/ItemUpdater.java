@@ -29,6 +29,29 @@ public class ItemUpdater {
         item.sellIn = item.sellIn - 1;
     }
 
+    private static void updateBackstagePass(final Item item) {
+        if (item.quality < MAX_ITEM_QUALITY) {
+            item.quality = item.quality + 1;
+            if (item.sellIn < 11) {
+                if (item.quality < MAX_ITEM_QUALITY) {
+                    item.quality = item.quality + 1;
+                }
+            }
+
+            if (item.sellIn < 6) {
+                if (item.quality < MAX_ITEM_QUALITY) {
+                    item.quality = item.quality + 1;
+                }
+            }
+        }
+
+        item.sellIn = item.sellIn - 1;
+
+        if (item.sellIn < 0) {
+            item.quality = MIN_ITEM_QUALITY;
+        }
+    }
+
     private static void updateRegularItem(final Item item) {
         if (item.quality > MIN_ITEM_QUALITY) {
             item.quality = item.quality - 1;
@@ -38,31 +61,6 @@ public class ItemUpdater {
             if (item.quality > MIN_ITEM_QUALITY) {
                 item.quality = item.quality - 1;
             }
-        }
-    }
-
-    private static void updateBackstagePass(final Item item) {
-        if (item.quality < MAX_ITEM_QUALITY) {
-            item.quality = item.quality + 1;
-            if (isBackstagePass(item)) {
-                if (item.sellIn < 11) {
-                    if (item.quality < MAX_ITEM_QUALITY) {
-                        item.quality = item.quality + 1;
-                    }
-                }
-
-                if (item.sellIn < 6) {
-                    if (item.quality < MAX_ITEM_QUALITY) {
-                        item.quality = item.quality + 1;
-                    }
-                }
-            }
-        }
-
-        item.sellIn = item.sellIn - 1;
-
-        if (item.sellIn < 0) {
-            item.quality = MIN_ITEM_QUALITY;
         }
     }
 
