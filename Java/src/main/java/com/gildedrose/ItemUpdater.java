@@ -10,52 +10,64 @@ public class ItemUpdater {
 
     public static void update(final Item item) {
         if (isAgedBrie(item)) {
-            if (item.quality < MAX_ITEM_QUALITY) {
-                item.quality = item.quality + 1;
-            }
-
-            item.sellIn = item.sellIn - 1;
-
-            if (item.sellIn < 0) {
-                if (item.quality < MAX_ITEM_QUALITY) {
-                    item.quality = item.quality + 1;
-                }
-            }
+            updateBrie(item);
         } else if (isBackstagePass(item)) {
-            if (item.quality < MAX_ITEM_QUALITY) {
-                item.quality = item.quality + 1;
-                if (isBackstagePass(item)) {
-                    if (item.sellIn < 11) {
-                        if (item.quality < MAX_ITEM_QUALITY) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
-
-                    if (item.sellIn < 6) {
-                        if (item.quality < MAX_ITEM_QUALITY) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
-                }
-            }
-
-            item.sellIn = item.sellIn - 1;
-
-            if (item.sellIn < 0) {
-                item.quality = MIN_ITEM_QUALITY;
-            }
+            updateBackstagePass(item);
         } else if (isSulfuras(item)) {
             // nothing applies here
         } else {
+            updateRegularItem(item);
+        }
+    }
+
+    private static void updateBrie(final Item item) {
+        if (item.quality < MAX_ITEM_QUALITY) {
+            item.quality = item.quality + 1;
+        }
+
+        item.sellIn = item.sellIn - 1;
+
+        if (item.sellIn < 0) {
+            if (item.quality < MAX_ITEM_QUALITY) {
+                item.quality = item.quality + 1;
+            }
+        }
+    }
+
+    private static void updateRegularItem(final Item item) {
+        if (item.quality > MIN_ITEM_QUALITY) {
+            item.quality = item.quality - 1;
+        }
+        item.sellIn = item.sellIn - 1;
+        if (item.sellIn < 0) {
             if (item.quality > MIN_ITEM_QUALITY) {
                 item.quality = item.quality - 1;
             }
-            item.sellIn = item.sellIn - 1;
-            if (item.sellIn < 0) {
-                if (item.quality > MIN_ITEM_QUALITY) {
-                    item.quality = item.quality - 1;
+        }
+    }
+
+    private static void updateBackstagePass(final Item item) {
+        if (item.quality < MAX_ITEM_QUALITY) {
+            item.quality = item.quality + 1;
+            if (isBackstagePass(item)) {
+                if (item.sellIn < 11) {
+                    if (item.quality < MAX_ITEM_QUALITY) {
+                        item.quality = item.quality + 1;
+                    }
+                }
+
+                if (item.sellIn < 6) {
+                    if (item.quality < MAX_ITEM_QUALITY) {
+                        item.quality = item.quality + 1;
+                    }
                 }
             }
+        }
+
+        item.sellIn = item.sellIn - 1;
+
+        if (item.sellIn < 0) {
+            item.quality = MIN_ITEM_QUALITY;
         }
     }
 
