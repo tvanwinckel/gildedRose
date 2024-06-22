@@ -9,16 +9,21 @@ public class ItemUpdater {
     public static final int MIN_ITEM_QUALITY = 0;
 
     public static void update(final Item item) {
-        if (!isAgedBrie(item) && !isBackstagePass(item)) {
-            if (item.quality > MIN_ITEM_QUALITY) {
-                if (!isSulfuras(item)) {
-                    item.quality = item.quality - 1;
-                }
-            }
-        } else {
+        if (isAgedBrie(item)) {
             if (item.quality < MAX_ITEM_QUALITY) {
                 item.quality = item.quality + 1;
+            }
 
+            item.sellIn = item.sellIn - 1;
+
+            if (item.sellIn < 0) {
+                if (item.quality < MAX_ITEM_QUALITY) {
+                    item.quality = item.quality + 1;
+                }
+            }
+        } else if (isBackstagePass(item)) {
+            if (item.quality < MAX_ITEM_QUALITY) {
+                item.quality = item.quality + 1;
                 if (isBackstagePass(item)) {
                     if (item.sellIn < 11) {
                         if (item.quality < MAX_ITEM_QUALITY) {
@@ -33,26 +38,22 @@ public class ItemUpdater {
                     }
                 }
             }
-        }
 
-        if (!isSulfuras(item)) {
             item.sellIn = item.sellIn - 1;
-        }
 
-        if (item.sellIn < 0) {
-            if (!isAgedBrie(item)) {
-                if (!isBackstagePass(item)) {
-                    if (item.quality > MIN_ITEM_QUALITY) {
-                        if (!isSulfuras(item)) {
-                            item.quality = item.quality - 1;
-                        }
-                    }
-                } else {
-                    item.quality = MIN_ITEM_QUALITY;
-                }
-            } else {
-                if (item.quality < MAX_ITEM_QUALITY) {
-                    item.quality = item.quality + 1;
+            if (item.sellIn < 0) {
+                item.quality = MIN_ITEM_QUALITY;
+            }
+        } else if (isSulfuras(item)) {
+            // nothing applies here
+        } else {
+            if (item.quality > MIN_ITEM_QUALITY) {
+                item.quality = item.quality - 1;
+            }
+            item.sellIn = item.sellIn - 1;
+            if (item.sellIn < 0) {
+                if (item.quality > MIN_ITEM_QUALITY) {
+                    item.quality = item.quality - 1;
                 }
             }
         }
