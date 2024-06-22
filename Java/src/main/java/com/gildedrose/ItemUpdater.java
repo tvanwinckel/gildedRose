@@ -1,5 +1,8 @@
 package com.gildedrose;
 
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+
 public class ItemUpdater {
 
     public static final String AGED_BRIE = "Aged Brie";
@@ -21,17 +24,9 @@ public class ItemUpdater {
     }
 
     private static void updateBrie(final Item item) {
-        if (item.quality < MAX_ITEM_QUALITY) {
-            item.quality = item.quality + 1;
-        }
-
+        final int quality = item.sellIn > 0 ? 1 : 2;
+        item.quality = min(item.quality + quality, MAX_ITEM_QUALITY);
         item.sellIn = item.sellIn - 1;
-
-        if (item.sellIn < 0) {
-            if (item.quality < MAX_ITEM_QUALITY) {
-                item.quality = item.quality + 1;
-            }
-        }
     }
 
     private static void updateRegularItem(final Item item) {
