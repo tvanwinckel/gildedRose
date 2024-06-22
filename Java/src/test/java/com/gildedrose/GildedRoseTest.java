@@ -150,4 +150,16 @@ class GildedRoseTest {
         assertThat(item.quality).isEqualTo(0);
     }
 
+    @Test
+    void updateQualityOfBackstagePass_qualityCanNotSurpass50() {
+        final Item item = new Item(BACKSTAGE_PASSES, 3, 50);
+        final Item[] items = new Item[] {item};
+        final GildedRose app = new GildedRose(items);
+        app.updateQuality();
+
+        assertThat(item.name).isEqualTo(BACKSTAGE_PASSES);
+        assertThat(item.sellIn).isEqualTo(2);
+        assertThat(item.quality).isEqualTo(50);
+    }
+
 }

@@ -30,26 +30,20 @@ public class ItemUpdater {
     }
 
     private static void updateBackstagePass(final Item item) {
-        if (item.quality < MAX_ITEM_QUALITY) {
-            item.quality = item.quality + 1;
-            if (item.sellIn < 11) {
-                if (item.quality < MAX_ITEM_QUALITY) {
-                    item.quality = item.quality + 1;
-                }
-            }
-
-            if (item.sellIn < 6) {
-                if (item.quality < MAX_ITEM_QUALITY) {
-                    item.quality = item.quality + 1;
-                }
-            }
-        }
-
+        item.quality = item.sellIn > 0 ? calculateBackstagePassItemQuality(item) : MIN_ITEM_QUALITY;
         item.sellIn = item.sellIn - 1;
+    }
 
-        if (item.sellIn < 0) {
-            item.quality = MIN_ITEM_QUALITY;
+    private static int calculateBackstagePassItemQuality(final Item item) {
+        final int quality;
+        if (item.sellIn < 6) {
+            quality = 3;
+        } else if (item.sellIn < 11){
+            quality = 2;
+        } else {
+            quality = 1;
         }
+        return min(item.quality + quality, MAX_ITEM_QUALITY);
     }
 
     private static void updateRegularItem(final Item item) {
