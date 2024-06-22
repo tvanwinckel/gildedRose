@@ -10,6 +10,7 @@ public class ItemUpdater {
     public static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
     public static final int MAX_ITEM_QUALITY = 50;
     public static final int MIN_ITEM_QUALITY = 0;
+    public static final int DEADLINE = 0;
 
     public static void update(final Item item) {
         if (isAgedBrie(item)) {
@@ -24,13 +25,13 @@ public class ItemUpdater {
     }
 
     private static void updateBrie(final Item item) {
-        final int quality = item.sellIn > 0 ? 1 : 2;
+        final int quality = item.sellIn > DEADLINE ? 1 : 2;
         item.quality = min(item.quality + quality, MAX_ITEM_QUALITY);
         item.sellIn = item.sellIn - 1;
     }
 
     private static void updateBackstagePass(final Item item) {
-        item.quality = item.sellIn > 0 ? calculateBackstagePassItemQuality(item) : MIN_ITEM_QUALITY;
+        item.quality = item.sellIn > DEADLINE ? calculateBackstagePassItemQuality(item) : MIN_ITEM_QUALITY;
         item.sellIn = item.sellIn - 1;
     }
 
@@ -47,7 +48,7 @@ public class ItemUpdater {
     }
 
     private static void updateRegularItem(final Item item) {
-        final int quality = item.sellIn > 0 ? 1 : 2;
+        final int quality = item.sellIn > DEADLINE ? 1 : 2;
         item.quality = max(item.quality - quality, MIN_ITEM_QUALITY);
         item.sellIn = item.sellIn - 1;
     }
