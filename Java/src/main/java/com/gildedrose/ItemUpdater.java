@@ -47,15 +47,9 @@ public class ItemUpdater {
     }
 
     private static void updateRegularItem(final Item item) {
-        if (item.quality > MIN_ITEM_QUALITY) {
-            item.quality = item.quality - 1;
-        }
+        final int quality = item.sellIn > 0 ? 1 : 2;
+        item.quality = max(item.quality - quality, MIN_ITEM_QUALITY);
         item.sellIn = item.sellIn - 1;
-        if (item.sellIn < 0) {
-            if (item.quality > MIN_ITEM_QUALITY) {
-                item.quality = item.quality - 1;
-            }
-        }
     }
 
     private static boolean isSulfuras(final Item item) {
