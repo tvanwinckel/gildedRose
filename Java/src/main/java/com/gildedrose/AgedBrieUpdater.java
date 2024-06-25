@@ -4,7 +4,7 @@ import static com.gildedrose.ItemUpdater.DEADLINE;
 import static com.gildedrose.ItemUpdater.MAX_ITEM_QUALITY;
 import static java.lang.Math.min;
 
-public class AgedBrieUpdater {
+public class AgedBrieUpdater implements Updater{
 
     public void update(final Item item) {
         final int quality = item.sellIn > DEADLINE ? 1 : 2;
