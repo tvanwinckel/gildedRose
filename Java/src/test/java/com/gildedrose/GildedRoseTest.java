@@ -21,7 +21,7 @@ class GildedRoseTest {
 
 //    TODO : We now have a set of 'duplicate' tests - These and the updater specif ones.
 //     We will want to remove these duplicates (but have a few steps in my head that I want to accomplish first)
-    
+
     @Test
     void updateQualityOfRegularItem() {
         final Item item = new Item("+5 Dexterity Vest", 10, 20);
