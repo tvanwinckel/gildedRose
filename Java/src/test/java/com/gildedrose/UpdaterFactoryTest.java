@@ -3,6 +3,7 @@ package com.gildedrose;
 import org.junit.jupiter.api.Test;
 
 import static com.gildedrose.ItemUpdater.AGED_BRIE;
+import static com.gildedrose.ItemUpdater.BACKSTAGE_PASSES;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class UpdaterFactoryTest {
@@ -23,4 +24,11 @@ class UpdaterFactoryTest {
         assertThat(updater).isInstanceOf(AgedBrieUpdater.class);
     }
 
+    @Test
+    void createUpdaterBasedOnItem_backstagePass() {
+        final Item item = new Item(BACKSTAGE_PASSES, 0, 0);
+        final Updater updater = UpdaterFactory.of(item);
+
+        assertThat(updater).isInstanceOf(BackstagePassUpdater.class);
+    }
 }
