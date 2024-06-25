@@ -15,7 +15,8 @@ public class ItemUpdater {
 
     public static void update(final Item item) {
         if (isAgedBrie(item)) {
-            updateBrie(item);
+            final AgedBrieUpdater abu = new AgedBrieUpdater();
+            abu.update(item);
         } else if (isBackstagePass(item)) {
             updateBackstagePass(item);
         } else if (isSulfuras(item)) {
@@ -27,13 +28,7 @@ public class ItemUpdater {
             riu.update(item);
         }
     }
-
-    private static void updateBrie(final Item item) {
-        final int quality = item.sellIn > DEADLINE ? 1 : 2;
-        item.quality = min(item.quality + quality, MAX_ITEM_QUALITY);
-        item.sellIn = item.sellIn - 1;
-    }
-
+    
     private static void updateBackstagePass(final Item item) {
         item.quality = item.sellIn > DEADLINE ? calculateBackstagePassItemQuality(item) : MIN_ITEM_QUALITY;
         item.sellIn = item.sellIn - 1;
