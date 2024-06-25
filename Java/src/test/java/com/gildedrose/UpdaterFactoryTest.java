@@ -49,4 +49,12 @@ class UpdaterFactoryTest {
 
         assertThat(updater).isInstanceOf(ConjuredItemUpdater.class);
     }
+
+    @Test
+    void createUpdaterBasedOnItem_regularItem() {
+        final Item item = new Item("", 0, 0);
+        final Updater updater = UpdaterFactory.of(item);
+
+        assertThat(updater).isInstanceOf(RegularItemUpdater.class);
+    }
 }

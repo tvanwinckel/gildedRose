@@ -2,6 +2,7 @@ package com.gildedrose;
 
 import static com.gildedrose.ItemUpdater.AGED_BRIE;
 import static com.gildedrose.ItemUpdater.BACKSTAGE_PASSES;
+import static com.gildedrose.ItemUpdater.CONJURED;
 import static com.gildedrose.ItemUpdater.SULFURAS;
 
 public class UpdaterFactory {
@@ -13,8 +14,10 @@ public class UpdaterFactory {
             return new BackstagePassUpdater();
         } else if (isSulfuras(item)){
             return new SulfurasUpdater();
-        } else {
+        } else if (isConjured(item)){
             return new ConjuredItemUpdater();
+        } else {
+            return new RegularItemUpdater();
         }
     }
 
@@ -28,5 +31,9 @@ public class UpdaterFactory {
 
     private static boolean isSulfuras(final Item item) {
         return item.name.equals(SULFURAS);
+    }
+
+    private static boolean isConjured(final Item item) {
+        return item.name.contains(CONJURED);
     }
 }
