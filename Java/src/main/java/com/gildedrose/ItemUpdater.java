@@ -1,8 +1,5 @@
 package com.gildedrose;
 
-import static java.lang.Math.max;
-import static java.lang.Math.min;
-
 public class ItemUpdater {
 
     public static final String AGED_BRIE = "Aged Brie";
@@ -24,17 +21,12 @@ public class ItemUpdater {
             final SulfurasUpdater su = new SulfurasUpdater();
             su.update(item);
         } else if (isConjured(item)) {
-            updateConjured(item);
+            final ConjuredItemUpdater ciu = new ConjuredItemUpdater();
+            ciu.update(item);
         } else {
             final RegularItemUpdater riu = new RegularItemUpdater();
             riu.update(item);
         }
-    }
-
-    private static void updateConjured(final Item item) {
-        final int quality = item.sellIn > DEADLINE ? 2 : 4;
-        item.quality = max(item.quality - quality, MIN_ITEM_QUALITY);
-        item.sellIn = item.sellIn - 1;
     }
 
     private static boolean isSulfuras(final Item item) {
