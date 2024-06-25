@@ -2,7 +2,7 @@ package com.gildedrose;
 
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.ItemUpdater.SULFURAS;
+import static com.gildedrose.UpdaterFactory.SULFURAS;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class SulfurasUpdaterTest {

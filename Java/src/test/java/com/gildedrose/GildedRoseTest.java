@@ -2,10 +2,10 @@ package com.gildedrose;
 
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.ItemUpdater.AGED_BRIE;
-import static com.gildedrose.ItemUpdater.BACKSTAGE_PASSES;
-import static com.gildedrose.ItemUpdater.CONJURED;
-import static com.gildedrose.ItemUpdater.SULFURAS;
+import static com.gildedrose.UpdaterFactory.AGED_BRIE;
+import static com.gildedrose.UpdaterFactory.BACKSTAGE_PASSES;
+import static com.gildedrose.UpdaterFactory.CONJURED;
+import static com.gildedrose.UpdaterFactory.SULFURAS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

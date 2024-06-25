@@ -2,7 +2,7 @@ package com.gildedrose;
 
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.ItemUpdater.CONJURED;
+import static com.gildedrose.UpdaterFactory.CONJURED;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class ConjuredItemUpdaterTest {

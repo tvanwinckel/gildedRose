@@ -1,8 +1,8 @@
 package com.gildedrose;
 
-import static com.gildedrose.ItemUpdater.DEADLINE;
-import static com.gildedrose.ItemUpdater.MAX_ITEM_QUALITY;
-import static com.gildedrose.ItemUpdater.MIN_ITEM_QUALITY;
+import static com.gildedrose.UpdaterFactory.DEADLINE;
+import static com.gildedrose.UpdaterFactory.MAX_ITEM_QUALITY;
+import static com.gildedrose.UpdaterFactory.MIN_ITEM_QUALITY;
 import static java.lang.Math.min;
 
 public class BackstagePassUpdater implements Updater {

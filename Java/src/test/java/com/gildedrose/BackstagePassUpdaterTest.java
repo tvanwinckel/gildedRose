@@ -2,7 +2,7 @@ package com.gildedrose;
 
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.ItemUpdater.BACKSTAGE_PASSES;
+import static com.gildedrose.UpdaterFactory.BACKSTAGE_PASSES;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class BackstagePassUpdaterTest {
