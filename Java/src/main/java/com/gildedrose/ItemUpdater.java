@@ -20,7 +20,8 @@ public class ItemUpdater {
         } else if (isBackstagePass(item)) {
             updateBackstagePass(item);
         } else if (isSulfuras(item)) {
-            // nothing applies here
+            final SulfurasUpdater su = new SulfurasUpdater();
+            su.update(item);
         } else if (isConjured(item)) {
             updateConjured(item);
         } else {
@@ -28,7 +29,7 @@ public class ItemUpdater {
             riu.update(item);
         }
     }
-    
+
     private static void updateBackstagePass(final Item item) {
         item.quality = item.sellIn > DEADLINE ? calculateBackstagePassItemQuality(item) : MIN_ITEM_QUALITY;
         item.sellIn = item.sellIn - 1;
