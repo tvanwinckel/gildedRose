@@ -12,7 +12,7 @@ class GildedRose {
 
     public void updateQuality() {
         Arrays.stream(items).forEach(item -> {
-            final Updater updater = UpdaterFactory.of(item);
+            final ItemUpdater updater = UpdaterFactory.of(item);
             updater.update(item);
         });
 

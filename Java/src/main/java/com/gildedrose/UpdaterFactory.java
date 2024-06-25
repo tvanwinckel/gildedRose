@@ -10,7 +10,7 @@ public class UpdaterFactory {
     public static final int MIN_ITEM_QUALITY = 0;
     public static final int DEADLINE = 0;
 
-    public static Updater of(final Item item) {
+    public static ItemUpdater of(final Item item) {
         if (isAgedBrie(item)) {
             return new AgedBrieUpdater();
         } else if (isBackstagePass(item)){

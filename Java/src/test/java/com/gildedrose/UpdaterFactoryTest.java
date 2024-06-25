@@ -21,7 +21,7 @@ class UpdaterFactoryTest {
     @Test
     void createUpdaterBasedOnItem_agedBrie() {
         final Item item = new Item(AGED_BRIE, 0, 0);
-        final Updater updater = UpdaterFactory.of(item);
+        final ItemUpdater updater = UpdaterFactory.of(item);
 
         assertThat(updater).isInstanceOf(AgedBrieUpdater.class);
     }
@@ -29,7 +29,7 @@ class UpdaterFactoryTest {
     @Test
     void createUpdaterBasedOnItem_backstagePass() {
         final Item item = new Item(BACKSTAGE_PASSES, 0, 0);
-        final Updater updater = UpdaterFactory.of(item);
+        final ItemUpdater updater = UpdaterFactory.of(item);
 
         assertThat(updater).isInstanceOf(BackstagePassUpdater.class);
     }
@@ -37,7 +37,7 @@ class UpdaterFactoryTest {
     @Test
     void createUpdaterBasedOnItem_sulfuras() {
         final Item item = new Item(SULFURAS, 0, 0);
-        final Updater updater = UpdaterFactory.of(item);
+        final ItemUpdater updater = UpdaterFactory.of(item);
 
         assertThat(updater).isInstanceOf(SulfurasUpdater.class);
     }
@@ -45,7 +45,7 @@ class UpdaterFactoryTest {
     @Test
     void createUpdaterBasedOnItem_conjuredItem() {
         final Item item = new Item(CONJURED, 0, 0);
-        final Updater updater = UpdaterFactory.of(item);
+        final ItemUpdater updater = UpdaterFactory.of(item);
 
         assertThat(updater).isInstanceOf(ConjuredItemUpdater.class);
     }
@@ -53,7 +53,7 @@ class UpdaterFactoryTest {
     @Test
     void createUpdaterBasedOnItem_regularItem() {
         final Item item = new Item("", 0, 0);
-        final Updater updater = UpdaterFactory.of(item);
+        final ItemUpdater updater = UpdaterFactory.of(item);
 
         assertThat(updater).isInstanceOf(RegularItemUpdater.class);
     }

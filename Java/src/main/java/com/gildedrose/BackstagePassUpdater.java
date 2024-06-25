@@ -5,7 +5,7 @@ import static com.gildedrose.UpdaterFactory.MAX_ITEM_QUALITY;
 import static com.gildedrose.UpdaterFactory.MIN_ITEM_QUALITY;
 import static java.lang.Math.min;
 
-public class BackstagePassUpdater implements Updater {
+public class BackstagePassUpdater implements ItemUpdater {
 
     public void update(final Item item) {
         item.quality = item.sellIn > DEADLINE ? calculateBackstagePassItemQuality(item) : MIN_ITEM_QUALITY;
