@@ -23,7 +23,8 @@ public class ItemUpdater {
         } else if (isConjured(item)) {
             updateConjured(item);
         } else {
-            updateRegularItem(item);
+            final RegularItemUpdater riu = new RegularItemUpdater();
+            riu.update(item);
         }
     }
 
@@ -48,12 +49,6 @@ public class ItemUpdater {
             quality = 1;
         }
         return min(item.quality + quality, MAX_ITEM_QUALITY);
-    }
-
-    private static void updateRegularItem(final Item item) {
-        final int quality = item.sellIn > DEADLINE ? 1 : 2;
-        item.quality = max(item.quality - quality, MIN_ITEM_QUALITY);
-        item.sellIn = item.sellIn - 1;
     }
 
     private static void updateConjured(final Item item) {
