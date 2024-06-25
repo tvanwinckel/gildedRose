@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.gildedrose.ItemUpdater.AGED_BRIE;
 import static com.gildedrose.ItemUpdater.BACKSTAGE_PASSES;
+import static com.gildedrose.ItemUpdater.CONJURED;
 import static com.gildedrose.ItemUpdater.SULFURAS;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -39,5 +40,13 @@ class UpdaterFactoryTest {
         final Updater updater = UpdaterFactory.of(item);
 
         assertThat(updater).isInstanceOf(SulfurasUpdater.class);
+    }
+
+    @Test
+    void createUpdaterBasedOnItem_conjuredItem() {
+        final Item item = new Item(CONJURED, 0, 0);
+        final Updater updater = UpdaterFactory.of(item);
+
+        assertThat(updater).isInstanceOf(ConjuredItemUpdater.class);
     }
 }
