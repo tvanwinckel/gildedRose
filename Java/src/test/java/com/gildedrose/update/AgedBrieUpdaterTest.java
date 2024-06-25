@@ -1,8 +1,10 @@
-package com.gildedrose;
+package com.gildedrose.update;
 
+import com.gildedrose.Item;
+import com.gildedrose.update.AgedBrieUpdater;
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.UpdaterFactory.AGED_BRIE;
+import static com.gildedrose.update.UpdaterFactory.AGED_BRIE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class AgedBrieUpdaterTest {

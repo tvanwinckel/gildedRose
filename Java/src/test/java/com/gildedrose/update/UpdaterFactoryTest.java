@@ -1,11 +1,19 @@
-package com.gildedrose;
+package com.gildedrose.update;
 
+import com.gildedrose.Item;
+import com.gildedrose.update.AgedBrieUpdater;
+import com.gildedrose.update.BackstagePassUpdater;
+import com.gildedrose.update.ConjuredItemUpdater;
+import com.gildedrose.update.ItemUpdater;
+import com.gildedrose.update.RegularItemUpdater;
+import com.gildedrose.update.SulfurasUpdater;
+import com.gildedrose.update.UpdaterFactory;
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.UpdaterFactory.AGED_BRIE;
-import static com.gildedrose.UpdaterFactory.BACKSTAGE_PASSES;
-import static com.gildedrose.UpdaterFactory.CONJURED;
-import static com.gildedrose.UpdaterFactory.SULFURAS;
+import static com.gildedrose.update.UpdaterFactory.AGED_BRIE;
+import static com.gildedrose.update.UpdaterFactory.BACKSTAGE_PASSES;
+import static com.gildedrose.update.UpdaterFactory.CONJURED;
+import static com.gildedrose.update.UpdaterFactory.SULFURAS;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class UpdaterFactoryTest {

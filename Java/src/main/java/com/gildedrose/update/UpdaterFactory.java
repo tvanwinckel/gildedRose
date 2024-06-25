@@ -1,4 +1,12 @@
-package com.gildedrose;
+package com.gildedrose.update;
+
+import com.gildedrose.Item;
+import com.gildedrose.update.AgedBrieUpdater;
+import com.gildedrose.update.BackstagePassUpdater;
+import com.gildedrose.update.ConjuredItemUpdater;
+import com.gildedrose.update.ItemUpdater;
+import com.gildedrose.update.RegularItemUpdater;
+import com.gildedrose.update.SulfurasUpdater;
 
 public class UpdaterFactory {
 

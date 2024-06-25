@@ -1,5 +1,8 @@
 package com.gildedrose;
 
+import com.gildedrose.update.ItemUpdater;
+import com.gildedrose.update.UpdaterFactory;
+
 import java.util.Arrays;
 
 class GildedRose {

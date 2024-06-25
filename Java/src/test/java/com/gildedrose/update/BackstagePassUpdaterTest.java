@@ -1,8 +1,10 @@
-package com.gildedrose;
+package com.gildedrose.update;
 
+import com.gildedrose.Item;
+import com.gildedrose.update.BackstagePassUpdater;
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.UpdaterFactory.BACKSTAGE_PASSES;
+import static com.gildedrose.update.UpdaterFactory.BACKSTAGE_PASSES;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class BackstagePassUpdaterTest {
