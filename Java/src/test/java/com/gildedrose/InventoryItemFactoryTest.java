@@ -14,7 +14,7 @@ class InventoryItemFactoryTest {
     void createInventoryItem_agedBrie() {
         final Item item = new Item(AGED_BRIE, 0, 0);
 
-        final InventoryItem inventoryItem = InventoryItemFactory.create(item);
+        final InventoryItem inventoryItem = InventoryItemFactory.from(item);
         assertThat(inventoryItem).isInstanceOf(AgedBrie.class);
     }
 
@@ -22,7 +22,7 @@ class InventoryItemFactoryTest {
     void createInventoryItem_backstagePass() {
         final Item item = new Item(BACKSTAGE_PASSES, 0, 0);
 
-        final InventoryItem inventoryItem = InventoryItemFactory.create(item);
+        final InventoryItem inventoryItem = InventoryItemFactory.from(item);
         assertThat(inventoryItem).isInstanceOf(BackstagePass.class);
     }
 
@@ -30,7 +30,7 @@ class InventoryItemFactoryTest {
     void createInventoryItem_sulfuras() {
         final Item item = new Item(SULFURAS, 0, 0);
 
-        final InventoryItem inventoryItem = InventoryItemFactory.create(item);
+        final InventoryItem inventoryItem = InventoryItemFactory.from(item);
         assertThat(inventoryItem).isInstanceOf(Sulfuras.class);
     }
 
@@ -38,7 +38,7 @@ class InventoryItemFactoryTest {
     void createInventoryItem_conjured() {
         final Item item = new Item(CONJURED, 0, 0);
 
-        final InventoryItem inventoryItem = InventoryItemFactory.create(item);
+        final InventoryItem inventoryItem = InventoryItemFactory.from(item);
         assertThat(inventoryItem).isInstanceOf(Conjured.class);
     }
 
@@ -46,7 +46,7 @@ class InventoryItemFactoryTest {
     void createInventoryItem_regularItem() {
         final Item item = new Item("+5 Dexterity Vest", 0, 0);
 
-        final InventoryItem inventoryItem = InventoryItemFactory.create(item);
+        final InventoryItem inventoryItem = InventoryItemFactory.from(item);
         assertThat(inventoryItem).isInstanceOf(RegularItem.class);
     }
 }

@@ -7,7 +7,7 @@ import static com.gildedrose.Sulfuras.SULFURAS;
 
 public class InventoryItemFactory {
 
-    public static InventoryItem create(final Item item) {
+    public static InventoryItem from(final Item item) {
         if (isAgedBrie(item)) {
             return new AgedBrie(item.name, item.sellIn, item.quality);
         } else if (isBackstagePass(item)) {
