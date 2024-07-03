@@ -2,9 +2,9 @@ package com.gildedrose;
 
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.GildedRose.AGED_BRIE;
-import static com.gildedrose.GildedRose.BACKSTAGE_PASSES;
-import static com.gildedrose.GildedRose.SULFURAS;
+import static com.gildedrose.Item.AGED_BRIE;
+import static com.gildedrose.Item.BACKSTAGE_PASSES;
+import static com.gildedrose.Item.SULFURAS;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
