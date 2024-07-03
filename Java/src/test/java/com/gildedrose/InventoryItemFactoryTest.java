@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.gildedrose.AgedBrie.AGED_BRIE;
 import static com.gildedrose.BackstagePass.BACKSTAGE_PASSES;
+import static com.gildedrose.Conjured.CONJURED;
 import static com.gildedrose.Sulfuras.SULFURAS;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -31,5 +32,13 @@ class InventoryItemFactoryTest {
 
         final InventoryItem inventoryItem = InventoryItemFactory.create(item);
         assertThat(inventoryItem).isInstanceOf(Sulfuras.class);
+    }
+
+    @Test
+    void createInventoryItem_conjured() {
+        final Item item = new Item(CONJURED, 0, 0);
+
+        final InventoryItem inventoryItem = InventoryItemFactory.create(item);
+        assertThat(inventoryItem).isInstanceOf(Conjured.class);
     }
 }
