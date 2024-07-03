@@ -3,6 +3,7 @@ package com.gildedrose;
 import org.junit.jupiter.api.Test;
 
 import static com.gildedrose.AgedBrie.AGED_BRIE;
+import static com.gildedrose.BackstagePass.BACKSTAGE_PASSES;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class InventoryItemFactoryTest {
@@ -13,5 +14,13 @@ class InventoryItemFactoryTest {
 
         final InventoryItem inventoryItem = InventoryItemFactory.create(item);
         assertThat(inventoryItem).isInstanceOf(AgedBrie.class);
+    }
+
+    @Test
+    void createInventoryItem_backstagePass() {
+        final Item item = new Item(BACKSTAGE_PASSES, 0, 0);
+
+        final InventoryItem inventoryItem = InventoryItemFactory.create(item);
+        assertThat(inventoryItem).isInstanceOf(BackstagePass.class);
     }
 }
