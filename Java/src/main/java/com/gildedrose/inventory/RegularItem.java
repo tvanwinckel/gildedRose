@@ -2,7 +2,7 @@ package com.gildedrose.inventory;
 
 import static java.lang.Math.max;
 
-public class RegularItem implements InventoryItem {
+public class RegularItem implements InventoryUpdate {
 
     private static final int MIN_ITEM_QUALITY = 0;
 

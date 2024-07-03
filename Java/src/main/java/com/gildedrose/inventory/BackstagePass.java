@@ -2,7 +2,7 @@ package com.gildedrose.inventory;
 
 import static java.lang.Math.min;
 
-public class BackstagePass implements InventoryItem {
+public class BackstagePass implements InventoryUpdate {
 
     public static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
     private static final int MAX_ITEM_QUALITY = 50;

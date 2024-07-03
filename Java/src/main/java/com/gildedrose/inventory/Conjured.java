@@ -2,7 +2,7 @@ package com.gildedrose.inventory;
 
 import static java.lang.Math.max;
 
-public class Conjured implements InventoryItem {
+public class Conjured implements InventoryUpdate {
 
     public static final String CONJURED = "Conjured";
     private static final int MIN_ITEM_QUALITY = 0;

@@ -3,7 +3,7 @@ package com.gildedrose;
 import com.gildedrose.inventory.AgedBrie;
 import com.gildedrose.inventory.BackstagePass;
 import com.gildedrose.inventory.Conjured;
-import com.gildedrose.inventory.InventoryItem;
+import com.gildedrose.inventory.InventoryUpdate;
 import com.gildedrose.inventory.InventoryItemFactory;
 import com.gildedrose.inventory.RegularItem;
 import com.gildedrose.inventory.Sulfuras;
@@ -21,7 +21,7 @@ class InventoryItemFactoryTest {
     void createInventoryItem_agedBrie() {
         final Item item = new Item(AGED_BRIE, 0, 0);
 
-        final InventoryItem inventoryItem = InventoryItemFactory.from(item);
+        final InventoryUpdate inventoryItem = InventoryItemFactory.from(item);
         assertThat(inventoryItem).isInstanceOf(AgedBrie.class);
     }
 
@@ -29,7 +29,7 @@ class InventoryItemFactoryTest {
     void createInventoryItem_backstagePass() {
         final Item item = new Item(BACKSTAGE_PASSES, 0, 0);
 
-        final InventoryItem inventoryItem = InventoryItemFactory.from(item);
+        final InventoryUpdate inventoryItem = InventoryItemFactory.from(item);
         assertThat(inventoryItem).isInstanceOf(BackstagePass.class);
     }
 
@@ -37,7 +37,7 @@ class InventoryItemFactoryTest {
     void createInventoryItem_sulfuras() {
         final Item item = new Item(SULFURAS, 0, 0);
 
-        final InventoryItem inventoryItem = InventoryItemFactory.from(item);
+        final InventoryUpdate inventoryItem = InventoryItemFactory.from(item);
         assertThat(inventoryItem).isInstanceOf(Sulfuras.class);
     }
 
@@ -45,7 +45,7 @@ class InventoryItemFactoryTest {
     void createInventoryItem_conjured() {
         final Item item = new Item(CONJURED, 0, 0);
 
-        final InventoryItem inventoryItem = InventoryItemFactory.from(item);
+        final InventoryUpdate inventoryItem = InventoryItemFactory.from(item);
         assertThat(inventoryItem).isInstanceOf(Conjured.class);
     }
 
@@ -53,7 +53,7 @@ class InventoryItemFactoryTest {
     void createInventoryItem_regularItem() {
         final Item item = new Item("+5 Dexterity Vest", 0, 0);
 
-        final InventoryItem inventoryItem = InventoryItemFactory.from(item);
+        final InventoryUpdate inventoryItem = InventoryItemFactory.from(item);
         assertThat(inventoryItem).isInstanceOf(RegularItem.class);
     }
 }

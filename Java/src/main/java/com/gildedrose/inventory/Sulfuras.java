@@ -1,6 +1,6 @@
 package com.gildedrose.inventory;
 
-public class Sulfuras implements InventoryItem {
+public class Sulfuras implements InventoryUpdate {
 
     public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 

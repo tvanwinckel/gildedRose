@@ -2,7 +2,7 @@ package com.gildedrose.inventory;
 
 import static java.lang.Math.min;
 
-public class AgedBrie implements InventoryItem {
+public class AgedBrie implements InventoryUpdate {
 
     public static final String AGED_BRIE = "Aged Brie";
     private static final int MAX_ITEM_QUALITY = 50;

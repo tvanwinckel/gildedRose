@@ -1,12 +1,6 @@
 package com.gildedrose.inventory;
 
 import com.gildedrose.Item;
-import com.gildedrose.inventory.AgedBrie;
-import com.gildedrose.inventory.BackstagePass;
-import com.gildedrose.inventory.Conjured;
-import com.gildedrose.inventory.InventoryItem;
-import com.gildedrose.inventory.RegularItem;
-import com.gildedrose.inventory.Sulfuras;
 
 import static com.gildedrose.inventory.AgedBrie.AGED_BRIE;
 import static com.gildedrose.inventory.BackstagePass.BACKSTAGE_PASSES;
@@ -15,7 +9,7 @@ import static com.gildedrose.inventory.Sulfuras.SULFURAS;
 
 public class InventoryItemFactory {
 
-    public static InventoryItem from(final Item item) {
+    public static InventoryUpdate from(final Item item) {
         if (isAgedBrie(item)) {
             return new AgedBrie(item.name, item.sellIn, item.quality);
         } else if (isBackstagePass(item)) {
