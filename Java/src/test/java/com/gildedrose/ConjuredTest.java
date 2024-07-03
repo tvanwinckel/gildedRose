@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import com.gildedrose.inventory.Conjured;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

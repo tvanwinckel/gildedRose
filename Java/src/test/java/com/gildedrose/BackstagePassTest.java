@@ -1,8 +1,9 @@
 package com.gildedrose;
 
+import com.gildedrose.inventory.BackstagePass;
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.BackstagePass.BACKSTAGE_PASSES;
+import static com.gildedrose.inventory.BackstagePass.BACKSTAGE_PASSES;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class BackstagePassTest {

@@ -1,9 +1,17 @@
-package com.gildedrose;
+package com.gildedrose.inventory;
 
-import static com.gildedrose.AgedBrie.AGED_BRIE;
-import static com.gildedrose.BackstagePass.BACKSTAGE_PASSES;
-import static com.gildedrose.Conjured.CONJURED;
-import static com.gildedrose.Sulfuras.SULFURAS;
+import com.gildedrose.Item;
+import com.gildedrose.inventory.AgedBrie;
+import com.gildedrose.inventory.BackstagePass;
+import com.gildedrose.inventory.Conjured;
+import com.gildedrose.inventory.InventoryItem;
+import com.gildedrose.inventory.RegularItem;
+import com.gildedrose.inventory.Sulfuras;
+
+import static com.gildedrose.inventory.AgedBrie.AGED_BRIE;
+import static com.gildedrose.inventory.BackstagePass.BACKSTAGE_PASSES;
+import static com.gildedrose.inventory.Conjured.CONJURED;
+import static com.gildedrose.inventory.Sulfuras.SULFURAS;
 
 public class InventoryItemFactory {
 

@@ -1,9 +1,9 @@
 package com.gildedrose;
 
-import static com.gildedrose.AgedBrie.AGED_BRIE;
-import static com.gildedrose.BackstagePass.BACKSTAGE_PASSES;
-import static com.gildedrose.Conjured.CONJURED;
-import static com.gildedrose.Sulfuras.SULFURAS;
+import static com.gildedrose.inventory.AgedBrie.AGED_BRIE;
+import static com.gildedrose.inventory.BackstagePass.BACKSTAGE_PASSES;
+import static com.gildedrose.inventory.Conjured.CONJURED;
+import static com.gildedrose.inventory.Sulfuras.SULFURAS;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 

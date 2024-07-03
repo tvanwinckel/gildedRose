@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.inventory;
 
 import static java.lang.Math.min;
 

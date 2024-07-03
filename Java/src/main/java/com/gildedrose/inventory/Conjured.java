@@ -1,16 +1,17 @@
-package com.gildedrose;
+package com.gildedrose.inventory;
 
-import static java.lang.Math.min;
+import static java.lang.Math.max;
 
-public class AgedBrie implements InventoryItem {
+public class Conjured implements InventoryItem {
 
-    public static final String AGED_BRIE = "Aged Brie";
-    private static final int MAX_ITEM_QUALITY = 50;
+    public static final String CONJURED = "Conjured";
+    private static final int MIN_ITEM_QUALITY = 0;
 
     private final String name;
     private int sellIn;
     private int quality;
-    public AgedBrie(final String name, final int sellIn, final int quality) {
+
+    public Conjured(final String name, final int sellIn, final int quality) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
@@ -35,8 +36,8 @@ public class AgedBrie implements InventoryItem {
 
     @Override
     public void update() {
-        final int qualityIncrease = sellIn > 0 ? 1 : 2;
-        quality = min(quality + qualityIncrease, MAX_ITEM_QUALITY);
+        final int qualityDecrease = sellIn > 0 ? 2 : 4;
+        quality = max(quality - qualityDecrease, MIN_ITEM_QUALITY);
         sellIn = sellIn - 1;
     }
 }

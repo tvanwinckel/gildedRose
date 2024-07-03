@@ -1,14 +1,16 @@
-package com.gildedrose;
+package com.gildedrose.inventory;
 
-public class Sulfuras implements InventoryItem {
+import static java.lang.Math.max;
 
-    public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
+public class RegularItem implements InventoryItem {
+
+    private static final int MIN_ITEM_QUALITY = 0;
 
     private final String name;
-    private final int sellIn;
-    private final int quality;
+    private int sellIn;
+    private int quality;
 
-    public Sulfuras(final String name, final int sellIn, final int quality) {
+    public RegularItem(final String name, final int sellIn, final int quality) {
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
@@ -33,6 +35,8 @@ public class Sulfuras implements InventoryItem {
 
     @Override
     public void update() {
-        // Do nothing
+        final int qualityDecrease = sellIn > 0 ? 1 : 2;
+        quality = max(quality - qualityDecrease, MIN_ITEM_QUALITY);
+        sellIn = sellIn - 1;
     }
 }

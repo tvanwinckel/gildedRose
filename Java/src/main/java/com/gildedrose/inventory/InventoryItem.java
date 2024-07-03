@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.inventory;
 
 public interface InventoryItem {
 

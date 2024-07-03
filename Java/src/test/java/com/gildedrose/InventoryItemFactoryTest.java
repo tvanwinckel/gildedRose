@@ -1,11 +1,18 @@
 package com.gildedrose;
 
+import com.gildedrose.inventory.AgedBrie;
+import com.gildedrose.inventory.BackstagePass;
+import com.gildedrose.inventory.Conjured;
+import com.gildedrose.inventory.InventoryItem;
+import com.gildedrose.inventory.InventoryItemFactory;
+import com.gildedrose.inventory.RegularItem;
+import com.gildedrose.inventory.Sulfuras;
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.AgedBrie.AGED_BRIE;
-import static com.gildedrose.BackstagePass.BACKSTAGE_PASSES;
-import static com.gildedrose.Conjured.CONJURED;
-import static com.gildedrose.Sulfuras.SULFURAS;
+import static com.gildedrose.inventory.AgedBrie.AGED_BRIE;
+import static com.gildedrose.inventory.BackstagePass.BACKSTAGE_PASSES;
+import static com.gildedrose.inventory.Conjured.CONJURED;
+import static com.gildedrose.inventory.Sulfuras.SULFURAS;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class InventoryItemFactoryTest {

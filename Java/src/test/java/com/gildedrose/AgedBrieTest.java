@@ -1,8 +1,9 @@
 package com.gildedrose;
 
+import com.gildedrose.inventory.AgedBrie;
 import org.junit.jupiter.api.Test;
 
-import static com.gildedrose.AgedBrie.AGED_BRIE;
+import static com.gildedrose.inventory.AgedBrie.AGED_BRIE;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class AgedBrieTest {
