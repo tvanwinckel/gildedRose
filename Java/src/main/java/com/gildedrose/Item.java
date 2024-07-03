@@ -1,5 +1,6 @@
 package com.gildedrose;
 
+import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 public class Item {
@@ -39,17 +40,9 @@ public class Item {
         } else if (isSulfuras()) {
             // sulfuras does nothing
         } else {
-            if (quality > MIN_ITEM_QUALITY) {
-                quality = quality - 1;
-            }
-
+            final int qualityDecrease = sellIn > 0 ? 1 : 2;
+            quality = max(quality - qualityDecrease, MIN_ITEM_QUALITY);
             sellIn = sellIn - 1;
-
-            if (sellIn < 0) {
-                if (quality > MIN_ITEM_QUALITY) {
-                    quality = quality - 1;
-                }
-            }
         }
 
 
