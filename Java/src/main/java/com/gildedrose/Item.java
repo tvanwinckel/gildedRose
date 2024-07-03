@@ -34,27 +34,8 @@ public class Item {
             quality = min(quality + qualityIncrease, MAX_ITEM_QUALITY);
             sellIn = sellIn - 1;
         } else if (isBackstagePass()) {
-            if (quality < MAX_ITEM_QUALITY) {
-                quality = quality + 1;
-
-                if (sellIn < 11) {
-                    if (quality < MAX_ITEM_QUALITY) {
-                        quality = quality + 1;
-                    }
-                }
-
-                if (sellIn < 6) {
-                    if (quality < MAX_ITEM_QUALITY) {
-                        quality = quality + 1;
-                    }
-                }
-            }
-
+            quality = sellIn > 0 ? calculateBackstagePassItemQuality() : MIN_ITEM_QUALITY;
             sellIn = sellIn - 1;
-
-            if (sellIn < 0) {
-                quality = MIN_ITEM_QUALITY;
-            }
         } else if (isSulfuras()) {
             // sulfuras does nothing
         } else {
@@ -72,6 +53,18 @@ public class Item {
         }
 
 
+    }
+
+    private int calculateBackstagePassItemQuality() {
+        final int qualityIncrease;
+        if (sellIn < 6) {
+            qualityIncrease = 3;
+        } else if (sellIn < 11){
+            qualityIncrease = 2;
+        } else {
+            qualityIncrease = 1;
+        }
+        return min(quality + qualityIncrease, MAX_ITEM_QUALITY);
     }
 
     private boolean isSulfuras() {
