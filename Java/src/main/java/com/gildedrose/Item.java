@@ -2,12 +2,11 @@ package com.gildedrose;
 
 import static com.gildedrose.AgedBrie.AGED_BRIE;
 import static com.gildedrose.BackstagePass.BACKSTAGE_PASSES;
+import static com.gildedrose.Sulfuras.SULFURAS;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 public class Item {
-
-    public static final String SULFURAS = "Sulfuras, Hand of Ragnaros";
 
     public static final String CONJURED = "Conjured";
     public static final int MAX_ITEM_QUALITY = 50;
