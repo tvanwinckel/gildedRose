@@ -61,34 +61,18 @@ public class Item {
             if (sellIn < 0) {
                 quality = MIN_ITEM_QUALITY;
             }
-        } else if (isSulfuras()){
+        } else if (isSulfuras()) {
             // sulfuras does nothing
-        }else {
-            if (!isAgedBrie() && !isBackstagePass()) {
-                if (quality > MIN_ITEM_QUALITY) {
-                    if (!isSulfuras()) {
-                        quality = quality - 1;
-                    }
-                }
-            } else {
-                if (quality < MAX_ITEM_QUALITY) {
-                    quality = quality + 1;
-                }
+        } else {
+            if (quality > MIN_ITEM_QUALITY) {
+                quality = quality - 1;
             }
 
-            if (!isSulfuras()) {
-                sellIn = sellIn - 1;
-            }
+            sellIn = sellIn - 1;
 
             if (sellIn < 0) {
-                if (!isAgedBrie()) {
-                    if (!isBackstagePass()) {
-                        if (quality > MIN_ITEM_QUALITY) {
-                            if (!isSulfuras()) {
-                                quality = quality - 1;
-                            }
-                        }
-                    }
+                if (quality > MIN_ITEM_QUALITY) {
+                    quality = quality - 1;
                 }
             }
         }
