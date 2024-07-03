@@ -1,10 +1,14 @@
 package com.gildedrose;
 
+import static java.lang.Math.min;
+
 public class BackstagePass implements InventoryItem {
 
     public static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
+    private static final int MAX_ITEM_QUALITY = 50;
+    private static final int MIN_ITEM_QUALITY = 0;
 
-    private String name;
+    private final String name;
     private int sellIn;
     private int quality;
 
@@ -14,6 +18,18 @@ public class BackstagePass implements InventoryItem {
         this.quality = quality;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getSellIn() {
+        return sellIn;
+    }
+
+    public int getQuality() {
+        return quality;
+    }
+
     @Override
     public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
@@ -21,6 +37,19 @@ public class BackstagePass implements InventoryItem {
 
     @Override
     public void update() {
+        quality = sellIn > 0 ? calculateBackstagePassItemQuality() : MIN_ITEM_QUALITY;
+        sellIn = sellIn - 1;
+    }
 
+    private int calculateBackstagePassItemQuality() {
+        final int qualityIncrease;
+        if (sellIn < 6) {
+            qualityIncrease = 3;
+        } else if (sellIn < 11) {
+            qualityIncrease = 2;
+        } else {
+            qualityIncrease = 1;
+        }
+        return min(quality + qualityIncrease, MAX_ITEM_QUALITY);
     }
 }
