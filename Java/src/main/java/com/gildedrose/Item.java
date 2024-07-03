@@ -21,60 +21,71 @@ public class Item {
         this.quality = quality;
     }
 
-   @Override
-   public String toString() {
+    @Override
+    public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
 
     public void update() {
-        if (!isAgedBrie()
-            && !isBackstagePass()) {
-            if (quality > MIN_ITEM_QUALITY) {
-                if (!isSulfuras()) {
-                    quality = quality - 1;
-                }
-            }
-        } else {
+        if (isAgedBrie()) {
             if (quality < MAX_ITEM_QUALITY) {
                 quality = quality + 1;
-
-                if (isBackstagePass()) {
-                    if (sellIn < 11) {
-                        if (quality < MAX_ITEM_QUALITY) {
-                            quality = quality + 1;
-                        }
-                    }
-
-                    if (sellIn < 6) {
-                        if (quality < MAX_ITEM_QUALITY) {
-                            quality = quality + 1;
-                        }
-                    }
-                }
             }
-        }
 
-        if (!isSulfuras()) {
             sellIn = sellIn - 1;
-        }
 
-        if (sellIn < 0) {
-            if (!isAgedBrie()) {
-                if (!isBackstagePass()) {
-                    if (quality > MIN_ITEM_QUALITY) {
-                        if (!isSulfuras()) {
-                            quality = quality - 1;
-                        }
-                    }
-                } else {
-                    quality = MIN_ITEM_QUALITY;
-                }
-            } else {
+            if (sellIn < 0) {
                 if (quality < MAX_ITEM_QUALITY) {
                     quality = quality + 1;
                 }
             }
+        } else {
+            if (!isAgedBrie() && !isBackstagePass()) {
+                if (quality > MIN_ITEM_QUALITY) {
+                    if (!isSulfuras()) {
+                        quality = quality - 1;
+                    }
+                }
+            } else {
+                if (quality < MAX_ITEM_QUALITY) {
+                    quality = quality + 1;
+
+                    if (isBackstagePass()) {
+                        if (sellIn < 11) {
+                            if (quality < MAX_ITEM_QUALITY) {
+                                quality = quality + 1;
+                            }
+                        }
+
+                        if (sellIn < 6) {
+                            if (quality < MAX_ITEM_QUALITY) {
+                                quality = quality + 1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            if (!isSulfuras()) {
+                sellIn = sellIn - 1;
+            }
+
+            if (sellIn < 0) {
+                if (!isAgedBrie()) {
+                    if (!isBackstagePass()) {
+                        if (quality > MIN_ITEM_QUALITY) {
+                            if (!isSulfuras()) {
+                                quality = quality - 1;
+                            }
+                        }
+                    } else {
+                        quality = MIN_ITEM_QUALITY;
+                    }
+                }
+            }
         }
+
+
     }
 
     private boolean isSulfuras() {
