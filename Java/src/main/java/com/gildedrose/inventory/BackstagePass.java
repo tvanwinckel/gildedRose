@@ -2,37 +2,14 @@ package com.gildedrose.inventory;
 
 import static java.lang.Math.min;
 
-public class BackstagePass implements InventoryUpdate {
+public class BackstagePass extends InventoryItem {
 
     public static final String BACKSTAGE_PASSES = "Backstage passes to a TAFKAL80ETC concert";
     private static final int MAX_ITEM_QUALITY = 50;
     private static final int MIN_ITEM_QUALITY = 0;
 
-    private final String name;
-    private int sellIn;
-    private int quality;
-
     public BackstagePass(final String name, final int sellIn, final int quality) {
-        this.name = name;
-        this.sellIn = sellIn;
-        this.quality = quality;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getSellIn() {
-        return sellIn;
-    }
-
-    public int getQuality() {
-        return quality;
-    }
-
-    @Override
-    public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality;
+        super(name, sellIn, quality);
     }
 
     @Override
