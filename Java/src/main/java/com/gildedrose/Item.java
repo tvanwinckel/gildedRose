@@ -61,7 +61,9 @@ public class Item {
             if (sellIn < 0) {
                 quality = MIN_ITEM_QUALITY;
             }
-        } else {
+        } else if (isSulfuras()){
+            // sulfuras does nothing
+        }else {
             if (!isAgedBrie() && !isBackstagePass()) {
                 if (quality > MIN_ITEM_QUALITY) {
                     if (!isSulfuras()) {
