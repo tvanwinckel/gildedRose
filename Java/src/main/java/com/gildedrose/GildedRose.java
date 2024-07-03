@@ -1,5 +1,8 @@
 package com.gildedrose;
 
+import com.gildedrose.inventory.InventoryItem;
+import com.gildedrose.inventory.InventoryItemFactory;
+
 class GildedRose {
 
 
@@ -11,9 +14,15 @@ class GildedRose {
 
     public void updateQuality() {
         for (final Item item : items) {
-            item.update();
+            final InventoryItem inventoryItem = InventoryItemFactory.from(item);
+            inventoryItem.update();
+
+            updateOriginalItemReference(item, inventoryItem);
         }
     }
 
-
+    private void updateOriginalItemReference(final Item item, final InventoryItem inventoryItem) {
+        item.sellIn = inventoryItem.getSellIn();
+        item.quality = inventoryItem.getQuality();
+    }
 }
