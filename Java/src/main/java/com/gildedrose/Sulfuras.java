@@ -21,6 +21,6 @@ public class Sulfuras implements InventoryItem {
 
     @Override
     public void update() {
-        
+
     }
 }
