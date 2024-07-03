@@ -39,6 +39,28 @@ public class Item {
                     quality = quality + 1;
                 }
             }
+        } else if (isBackstagePass()) {
+            if (quality < MAX_ITEM_QUALITY) {
+                quality = quality + 1;
+
+                if (sellIn < 11) {
+                    if (quality < MAX_ITEM_QUALITY) {
+                        quality = quality + 1;
+                    }
+                }
+
+                if (sellIn < 6) {
+                    if (quality < MAX_ITEM_QUALITY) {
+                        quality = quality + 1;
+                    }
+                }
+            }
+
+            sellIn = sellIn - 1;
+
+            if (sellIn < 0) {
+                quality = MIN_ITEM_QUALITY;
+            }
         } else {
             if (!isAgedBrie() && !isBackstagePass()) {
                 if (quality > MIN_ITEM_QUALITY) {
@@ -49,20 +71,6 @@ public class Item {
             } else {
                 if (quality < MAX_ITEM_QUALITY) {
                     quality = quality + 1;
-
-                    if (isBackstagePass()) {
-                        if (sellIn < 11) {
-                            if (quality < MAX_ITEM_QUALITY) {
-                                quality = quality + 1;
-                            }
-                        }
-
-                        if (sellIn < 6) {
-                            if (quality < MAX_ITEM_QUALITY) {
-                                quality = quality + 1;
-                            }
-                        }
-                    }
                 }
             }
 
@@ -78,8 +86,6 @@ public class Item {
                                 quality = quality - 1;
                             }
                         }
-                    } else {
-                        quality = MIN_ITEM_QUALITY;
                     }
                 }
             }
