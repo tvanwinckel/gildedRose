@@ -17,4 +17,9 @@ public class AgedBrie implements InventoryItem {
     public String toString() {
         return this.name + ", " + this.sellIn + ", " + this.quality;
     }
+
+    @Override
+    public void update() {
+
+    }
 }
