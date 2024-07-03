@@ -41,4 +41,12 @@ class InventoryItemFactoryTest {
         final InventoryItem inventoryItem = InventoryItemFactory.create(item);
         assertThat(inventoryItem).isInstanceOf(Conjured.class);
     }
+
+    @Test
+    void createInventoryItem_regularItem() {
+        final Item item = new Item("+5 Dexterity Vest", 0, 0);
+
+        final InventoryItem inventoryItem = InventoryItemFactory.create(item);
+        assertThat(inventoryItem).isInstanceOf(RegularItem.class);
+    }
 }
